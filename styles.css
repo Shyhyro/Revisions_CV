@@ -8,15 +8,24 @@ body {
     font-size: 62.5%;
 }
 
+/* Font */
 main, header {
     font-size: 1rem;
     font-family: Arial, sans-serif;
+}
+
+h3 {
+    padding: 1rem 0 0.5rem 0;
 }
 
 header {
     padding: 2rem 4rem;
     background: #d5d5d5;
     text-align: center;
+}
+
+main {
+    padding: 2rem 0;
 }
 
 header h1{
@@ -27,3 +36,11 @@ header h1{
     margin: auto;
     width: 70%;
 }
+
+/* CV */
+#cv {
+    display: flex;
+
+}
+
+/* Contact form */
