@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+}
+
+main, header {
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 2rem 4rem;
+    background: #d5d5d5;
+    text-align: center;
+}
+
+header h1{
+    padding-bottom: 1rem;
+}
+
+#container {
+    margin: auto;
+    width: 70%;
+}
