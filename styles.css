@@ -14,13 +14,17 @@ main, header {
     font-family: Arial, sans-serif;
 }
 
+h2 {
+    padding: 1rem 0;
+}
+
 h3 {
     padding: 1rem 0 0.5rem 0;
 }
 
 header {
     padding: 2rem 4rem;
-    background: #d5d5d5;
+    background: #f2d992;
     text-align: center;
 }
 
@@ -40,7 +44,27 @@ header h1{
 /* CV */
 #cv {
     display: flex;
+}
 
+#cv_head {
+    text-align: center;
+    height: 6rem;
+    background-color: #c7f2f2;
+}
+
+#cv_left{
+    width: 20%;
+    background-color: #c7f2f2;
+}
+
+#cv_left, #cv_right {
+    padding: 2rem 1rem;
 }
 
 /* Contact form */
+
+/* Other */
+li {
+    padding-left: 1rem;
+    list-style: none;
+}
