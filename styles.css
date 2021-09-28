@@ -53,18 +53,77 @@ header h1{
 }
 
 #cv_left{
-    width: 20%;
+    width: 30%;
     background-color: #c7f2f2;
 }
 
-#cv_left, #cv_right {
+#cv_left, #cv_right, #cv_contact_form, fieldset {
     padding: 2rem 1rem;
 }
 
-/* Contact form */
+#cv_experience, #cv_study {
+    min-height: 200px;
+}
+
+#cv_others table {
+    width: 100%;
+}
+
+#cv_others table tr:nth-child(even) {
+    background-color: #c7f2f2;
+}
+
+#cv .cv_1_experience, #cv .cv_1_study {
+    padding: 0.5rem 0.5rem;
+}
 
 /* Other */
+.date {
+    font-weight: bold;
+}
+
 li {
     padding-left: 1rem;
     list-style: none;
+}
+
+#cv img {
+    width: 100%;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+th, tr, td {
+    padding: 0.5rem 1rem;
+}
+
+section dl {
+    background-color: #f2d992;
+}
+
+dt, dl {
+    padding: 0.5rem 0.5rem;
+}
+
+/* Media */
+@media screen and (max-width: 1300px) {
+    #container {
+        width: 90%;
+    }
+
+    #cv_left {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #cv {
+        flex-direction: column;
+    }
+
+    #cv_left {
+        width: 100%;
+    }
 }
