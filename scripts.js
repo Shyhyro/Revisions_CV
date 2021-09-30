@@ -109,6 +109,7 @@ for(let i=0, l=label.length; i<l; ++i) {
  */
 let figcaption = document.querySelector('figcaption');
 let figureImg = document.querySelector('figure img');
+let figcaptionStatut = false;
 
 figcaption.style.position = 'relative';
 figcaption.style.top = '-154px';
@@ -116,12 +117,13 @@ figcaption.style.backgroundColor = 'black';
 figcaption.style.color = 'white';
 figcaption.style.transform = 'rotateY(90deg)';
 
-figureImg.addEventListener('mouseover', function () {
+
+figureImg.addEventListener('mouseenter', function () {
     figcaption.animate([{transform: 'rotateY(0deg)' }], {delay : 1000, duration : 1000, fill : "forwards" })
     figureImg.animate([{transform: 'rotateY(90deg)' }], {duration : 1000, fill : "forwards" })
 })
 
-figureImg.addEventListener('mouseleave', function () {
+figcaption.addEventListener('mouseleave', function () {
     figcaption.animate([{transform: 'rotateY(90deg)'}], {duration : 1000, fill : "forwards"})
     figureImg.animate([{transform: 'rotateY(0deg)' }], {delay : 1000, duration : 1000, fill : "forwards" })
 })
