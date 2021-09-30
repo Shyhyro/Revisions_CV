@@ -127,7 +127,7 @@ figureImg.addEventListener('mouseleave', function () {
 })
 
 /**
- * Ul / dd
+ * ul / dd
  */
 let wordDefinitionDl = document.querySelector('dl');
 let requestJson = 'dd.json';
@@ -143,6 +143,7 @@ request.onload = function() {
     worldDefinition(definition);
 }
 
+// select all words and her definition in json file
 function worldDefinition(definition) {
     for (let i = 0; i<=definition.length; i++) {
         let dt = document.createElement('dt');
@@ -152,6 +153,37 @@ function worldDefinition(definition) {
         let dd = document.createElement('dd');
         dd.textContent = definition[i]['definition']
         wordDefinitionDl.appendChild(dd);
+    }
+}
+
+request.send();
+
+// ul
+let nav = document.querySelector('nav');
+let requestJson2 = 'ul.json';
+
+request.open('GET', requestJson2);
+request.responseType = 'json';
+
+request.onload = function() {
+    let content = request.response;
+    console.log(content)
+    links(content);
+}
+
+// select all words and her definition in json file
+function links(content) {
+    let ul = document.createElement('ul');
+    ul.id = 'links'
+    nav.appendChild(ul);
+    let linkContent = document.querySelector('#links');
+
+    for (let i = 0; i<=content.length; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = "<a href='"+ content[i]['link'] +"'>" + content[i]['linkName'] + "</a>";
+        linkContent.appendChild(li);
+
+
     }
 }
 
