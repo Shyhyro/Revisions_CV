@@ -87,16 +87,17 @@ li {
     list-style: none;
 }
 
-#cv img {
-    width: 100%;
-}
-
-section {
-    margin-bottom: 2rem;
+#cv img, #cv figcaption {
+    width: 150px;
+    height: 150px;
 }
 
 th, tr, td {
     padding: 0.5rem 1rem;
+}
+
+.sectionButton {
+    cursor: pointer;
 }
 
 section dl {

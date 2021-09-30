@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Curriculum Vitae</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="placeholder.png">
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -27,55 +28,65 @@
                 <img src="placeholder.png" alt="ma photo">
                 <figcaption>Moi en photo</figcaption>
             </figure>
-            <h2>Nom Prenom</h2>
+            <h2 class="titles">Nom Prenom</h2>
             <div>
-                <h3>Coordonnées:</h3>
-                <ul>
-                    <li>00.00.00.00.00</li>
-                    <li>Monbeauvillage</li>
-                    <li>59000</li>
-                    <li>Permis auto</li>
-                </ul>
+                <h3 class="titles sectionButton">Coordonnées:</h3>
+                <section class="section">
+                    <ul>
+                        <li>00.00.00.00.00</li>
+                        <li>Monbeauvillage</li>
+                        <li>59000</li>
+                        <li>Permis auto</li>
+                    </ul>
+                </section>
             </div>
             <div>
-                <h3>Personnalités:</h3>
-                <ul>
-                    <li>Trait 1</li>
-                    <li>Trait 2</li>
-                    <li>Trait 3</li>
-                </ul>
+                <h3 class="titles sectionButton">Personnalités:</h3>
+                <section class="section">
+                    <ul>
+                        <li>Trait 1</li>
+                        <li>Trait 2</li>
+                        <li>Trait 3</li>
+                    </ul>
+                </section>
             </div>
             <div>
-                <h3>Compétences:</h3>
-                <ul>
-                    <li>PHP</li>
-                    <li>JavaScript</li>
-                    <li>CSS</li>
-                </ul>
+                <h3 class="titles sectionButton">Compétences:</h3>
+                <section class="section">
+                    <ul>
+                        <li>PHP</li>
+                        <li>JavaScript</li>
+                        <li>CSS</li>
+                    </ul>
+                </section>
             </div>
             <div>
-                <h3>Hobbies:</h3>
-                <ul>
-                    <li>Jardinage</li>
-                    <li>Dessin</li>
-                    <li>Peinture</li>
-                </ul>
+                <h3 class="titles sectionButton">Hobbies:</h3>
+                <section class="section">
+                    <ul>
+                        <li>Jardinage</li>
+                        <li>Dessin</li>
+                        <li>Peinture</li>
+                    </ul>
+                </section>
             </div>
             <div>
-                <h3>Réalisation personne:</h3>
-                <ul>
-                    <li>Jardinage</li>
-                    <li>Dessin</li>
-                    <li>Peinture</li>
-                </ul>
+                <h3 class="titles sectionButton">Réalisation personne:</h3>
+                <section class="section">
+                    <ul>
+                        <li>Jardinage</li>
+                        <li>Dessin</li>
+                        <li>Peinture</li>
+                    </ul>
+                </section>
             </div>
         </div>
         <div id="cv_right">
             <div id="cv_head">
-                <h2>Titre du Curriculum Vitae</h2>
+                <h2 class="titles">Titre du Curriculum Vitae</h2>
             </div>
             <div id="cv_experience">
-                <h3>Experience Professionnelle</h3>
+                <h3 class="titles">Experience Professionnelle</h3>
                 <div id="cv_all_experiences">
                     <div class="cv_1_experience">
                         <h4>Laveur de vitre</h4>
@@ -90,7 +101,7 @@
                 </div>
             </div>
             <div id="cv_study">
-                <h3>Formations</h3>
+                <h3 class="titles">Formations</h3>
                 <div id="cv_all_study">
                     <div class="cv_1_study">
                         <h4>BEP</h4>
@@ -105,7 +116,7 @@
                 </div>
             </div>
             <div id="cv_others">
-                <h3>Réalisations personnelles:</h3>
+                <h3 class="titles">Réalisations personnelles:</h3>
                 <table>
                     <tr>
                         <th>Titre</th>
@@ -148,16 +159,15 @@
         <form action="#" name="contact" id="cv_contact_form">
             <fieldset>
                 <legend>Vos informations:</legend>
-                <label>
-                    Nom: <input name="name" type="text" required>
-                    E-mail: <input type="email" required>
-                </label>
+                <label for="name">Nom: </label>
+                <input id="name" name="name" type="text" required>
+                <label for="email">E-mail:</label>
+                <input id="email" type="email" required>
             </fieldset>
             <fieldset>
                 <legend>Contenus:</legend>
-                <label>
-                    Message: <textarea required></textarea>
-                </label>
+                <label for="textarea">Message:</label>
+                <textarea id="textarea" required></textarea>
             </fieldset>
             <button type="submit">Envoyer</button>
         </form>
@@ -165,11 +175,6 @@
 
     <section>
         <dl>
-            <dt>Lorem</dt>
-            <dd>Blanditiis consequatur cupiditate itaque officia officiis pariatur placeat quidem.</dd>
-
-            <dt>Commodi dolore</dt>
-            <dd>Commodi dolore, doloribus fugiat harum perspiciatis porro, sed temporibus velit veniam voluptas voluptatum!</dd>
         </dl>
     </section>
 
