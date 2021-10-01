@@ -4,61 +4,40 @@
  */
 let time = null;
 
-let h1 = document.querySelector('h1');
-function h1Anim () {
-    let size = 0;
-
-    clearInterval(time);
-
-    time = setInterval(sizeChange, 10);
-
-    function sizeChange() {
-        if (size === 30) {
-
-            clearInterval(time);
-        } else {
-            size++;
-            h1.style.fontSize = size + 'px';
-        }
-    }
-}
-
-h1Anim();
+$("h1").animate({
+    fontSize: '+=10px'
+}, 1000);
 
 /**
  * h2 h3 animation
   */
-let titles = document.querySelectorAll('.titles');
-
-for (let i=0, l=titles.length; i<l; i++) {
-    titles[i].animate([{ opacity: '0' }, { opacity: '1' }, { color: 'orange'}], {delay:300, duration: 4000, fill: "forwards"});
-}
+$('h2').css("opacity", "0").css("color", "orange").animate({
+    opacity: 1,
+}, 4000 );
 
 /**
  * Sections
  * @type {HTMLElement}
  */
-let sections = document.querySelectorAll('.section');
 
-for (let i=0, l=sections.length; i<l; i++) {
-    sections[i].style.visibility = 'hidden';
-    sections[i].style.height = '0';
-}
+$('.section').css("visibility", "hidden").css("height", "0");
 
-let sectionsButtons = document.querySelectorAll('.sectionButton');
-
-for (let i=0, l=sectionsButtons.length; i<l; i++) {
-    sectionsButtons[i].addEventListener('click', function () {
-        if (sections[i].style.visibility === 'hidden'){
-            sections[i].style.visibility = 'visible';
-            sections[i].style.height = 'auto';
-        }
-        else {
-            sections[i].style.visibility = 'hidden';
-            sections[i].style.height = '0';
-        }
+$('.sectionButton').ready(function () {
+    $(this).click(function () {
+        $('.section').toggle(function () {
+            $(this).css("visibility", 'visible').css("height", "auto");
+        });
     })
-}
+})
+
+
+
+
+
+
+
+
+
 
 /**
  * Dancing letters
@@ -169,7 +148,6 @@ request.responseType = 'json';
 
 request.onload = function() {
     let content = request.response;
-    console.log(content)
     links(content);
 }
 
