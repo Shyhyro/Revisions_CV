@@ -2,18 +2,19 @@
  * h1 animation
  * @type {null}
  */
-let time = null;
+$('h2, h3').css("opacity", "0")
 
 $("h1").animate({
     fontSize: '+=10px'
-}, 1000);
+}, 1000).queue(function () {
 
-/**
- * h2 h3 animation
-  */
-$('h2').css("opacity", "0").css("color", "orange").animate({
-    opacity: 1,
-}, 4000 );
+    /**
+     * h2 h3 animation
+     */
+    $('h2, h3').css("color", "orange").animate({
+        opacity: 1,
+    }, 3000 );
+});
 
 /**
  * Sections
@@ -22,14 +23,14 @@ $('h2').css("opacity", "0").css("color", "orange").animate({
 
 $('.section').css("visibility", "hidden").css("height", "0");
 
-$('.sectionButton').ready(function () {
+$('.sectionButton').click(function () {
     $(this).click(function () {
-        $('.section').toggle(function () {
-            $(this).css("visibility", 'visible').css("height", "auto");
-        });
+        $(this).css("color", "purple");
+        // $('.section').toggle(function () {
+        //     $(this).css("visibility", 'visible').css("height", "auto");
+        // });
     })
 })
-
 
 
 
@@ -88,7 +89,6 @@ for(let i=0, l=label.length; i<l; ++i) {
  */
 let figcaption = document.querySelector('figcaption');
 let figureImg = document.querySelector('figure img');
-let figcaptionStatut = false;
 
 figcaption.style.position = 'relative';
 figcaption.style.top = '-154px';
