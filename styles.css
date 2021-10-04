@@ -87,7 +87,7 @@ li {
     list-style: none;
 }
 
-#cv img, #cv figcaption {
+.card, #cv img, #cv figcaption {
     width: 150px;
     height: 150px;
 }
@@ -107,6 +107,10 @@ th, tr, td {
 
 section dl {
     background-color: #f2d992;
+}
+
+.section {
+    display: none;
 }
 
 dt, dl {
@@ -133,4 +137,3 @@ dt, dl {
         width: 100%;
     }
 }
-

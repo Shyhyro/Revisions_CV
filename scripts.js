@@ -20,31 +20,17 @@ $("h1").animate({
  * Sections
  * @type {HTMLElement}
  */
-
-$('.section').css("visibility", "hidden").css("height", "0");
-
 $('.sectionButton').click(function () {
-    $(this).click(function () {
-        $(this).css("color", "purple");
-        // $('.section').toggle(function () {
-        //     $(this).css("visibility", 'visible').css("height", "auto");
-        // });
-    })
+    $(this).next().toggle();
 })
-
-
-
-
-
-
-
-
 
 /**
  * Dancing letters
  * @type {NodeListOf<HTMLElementTagNameMap[string]>}
  */
-let label = document.querySelectorAll('label');
+let label = $('label');
+
+console.log($('label').length)
 
 // Generate and return a random colors
 function getRandomColor() {
@@ -83,29 +69,61 @@ for(let i=0, l=label.length; i<l; ++i) {
 
 }
 
+
 /**
  * Figcaption
  * @type {HTMLElement}
  */
-let figcaption = document.querySelector('figcaption');
-let figureImg = document.querySelector('figure img');
-
-figcaption.style.position = 'relative';
-figcaption.style.top = '-154px';
-figcaption.style.backgroundColor = 'black';
-figcaption.style.color = 'white';
-figcaption.style.transform = 'rotateY(90deg)';
-
-
-figureImg.addEventListener('mouseenter', function () {
-    figcaption.animate([{transform: 'rotateY(0deg)' }], {delay : 1000, duration : 1000, fill : "forwards" })
-    figureImg.animate([{transform: 'rotateY(90deg)' }], {duration : 1000, fill : "forwards" })
+$('.back').css({
+    "position": 'relative',
+    "top": '-154px',
+    "backgroundColor": 'black',
+    "color": 'white',
+    "transform": 'rotateY(90deg)'
 })
 
-figcaption.addEventListener('mouseleave', function () {
-    figcaption.animate([{transform: 'rotateY(90deg)'}], {duration : 1000, fill : "forwards"})
-    figureImg.animate([{transform: 'rotateY(0deg)' }], {delay : 1000, duration : 1000, fill : "forwards" })
-})
+$('.front').css("transform", "rotateY(0)");
+let cardStatut = false;
+
+function Mouse () {
+    $(".card").off('mouseenter')
+    if (cardStatut === false) {
+        $('.front').css({
+            "transform": 'rotateY(90deg)',
+            transition: 'all 1s linear'
+        }).delay(1000).queue( function (next) {
+            $('.back').css({
+                "transform": 'rotateY(0)',
+                transition: 'all 1s linear'
+            })
+            next();
+        }).delay(1000).queue(function (next){
+            cardStatut = true;
+            $(".card").on('mouseenter', Mouse)
+            next();
+        });
+
+
+    }
+    else if (cardStatut === true) {
+        $('.back').css({
+            "transform": 'rotateY(90deg)',
+            transition: 'all 1s linear'
+        }).delay(1000).queue( function (next) {
+            $('.front').css({
+                "transform": 'rotateY(0)',
+                transition: 'all 1s linear'
+            })
+            next();
+        }).delay(1000).queue(function (next){
+            cardStatut = false;
+            $(".card").on('mouseenter', Mouse)
+            next();
+        });
+    }
+}
+
+$(".card").on('mouseenter', Mouse)
 
 /**
  * ul / dd
@@ -117,7 +135,6 @@ let request = new XMLHttpRequest();
 request.open('GET', requestJson);
 
 request.responseType = 'json';
-
 request.onload = function() {
     let definition = request.response;
     console.log(definition)
@@ -126,7 +143,9 @@ request.onload = function() {
 
 // select all words and her definition in json file
 function worldDefinition(definition) {
+
     for (let i = 0; i<=definition.length; i++) {
+
         let dt = document.createElement('dt');
         dt.textContent = definition[i]['word'];
         wordDefinitionDl.appendChild(dt);
@@ -142,12 +161,13 @@ request.send();
 // ul
 let nav = document.querySelector('nav');
 let requestJson2 = 'ul.json';
+let request2 = new XMLHttpRequest();
 
-request.open('GET', requestJson2);
-request.responseType = 'json';
+request2.open('GET', requestJson2);
+request2.responseType = 'json';
 
-request.onload = function() {
-    let content = request.response;
+request2.onload = function() {
+    let content = request2.response;
     links(content);
 }
 
@@ -167,4 +187,4 @@ function links(content) {
     }
 }
 
-request.send();
+request2.send();
