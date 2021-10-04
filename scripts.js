@@ -28,10 +28,6 @@ $('.sectionButton').click(function () {
  * Dancing letters
  * @type {NodeListOf<HTMLElementTagNameMap[string]>}
  */
-let label = $('label');
-
-console.log($('label').length)
-
 // Generate and return a random colors
 function getRandomColor() {
     let letters = '0123456789ABCDEF';
@@ -42,16 +38,17 @@ function getRandomColor() {
     return color;
 }
 
-for(let i=0, l=label.length; i<l; ++i) {
-    label[i].addEventListener('mouseenter', function (){
+let label = $('label');
 
-        let str = label[i].textContent;
-        label[i].innerHTML = '';
+$('label').on('mouseenter', function () {
+    $(this).each(function (index, value) {
+        let str = this.textContent;
+        this.innerHTML = '';
 
-        for(let j=0,ll=str.length; j<ll; ++j) {
-            let n = document.createElement('span');
-            label[i].appendChild(n);
-            n.textContent = str[j];
+        for (let j=0, ll= str.length; j<ll; ++j) {
+            let n = document.createElement('span')
+            this.appendChild(n)
+            n.textContent = str[j]
             n.style.color = getRandomColor() ;
 
             if(j%2 === 0)
@@ -62,13 +59,9 @@ for(let i=0, l=label.length; i<l; ++i) {
             {
                 n.style.fontFamily = '"Arial Black", sans-serif';
             }
-
         }
-
     })
-
-}
-
+})
 
 /**
  * Figcaption
@@ -103,7 +96,6 @@ function Mouse () {
             next();
         });
 
-
     }
     else if (cardStatut === true) {
         $('.back').css({
@@ -137,7 +129,6 @@ request.open('GET', requestJson);
 request.responseType = 'json';
 request.onload = function() {
     let definition = request.response;
-    console.log(definition)
     worldDefinition(definition);
 }
 
@@ -145,14 +136,7 @@ request.onload = function() {
 function worldDefinition(definition) {
 
     for (let i = 0; i<=definition.length; i++) {
-
-        let dt = document.createElement('dt');
-        dt.textContent = definition[i]['word'];
-        wordDefinitionDl.appendChild(dt);
-
-        let dd = document.createElement('dd');
-        dd.textContent = definition[i]['definition']
-        wordDefinitionDl.appendChild(dd);
+        $('dl').append($("<dt>" + definition[i]['word'] + "</dt>" + "<dd>" + definition[i]['definition'] + "</dd>"))
     }
 }
 
@@ -179,11 +163,7 @@ function links(content) {
     let linkContent = document.querySelector('#links');
 
     for (let i = 0; i<=content.length; i++) {
-        let li = document.createElement('li');
-        li.innerHTML = "<a href='"+ content[i]['link'] +"'>" + content[i]['linkName'] + "</a>";
-        linkContent.appendChild(li);
-
-
+        $('ul').append($("<li>" + "<a href='" + content[i]['link'] + "'>" + content[i]['linkName'] + "</a></li>"))
     }
 }
 
