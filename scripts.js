@@ -120,13 +120,11 @@ $(".card").on('mouseenter', Mouse)
 /**
  * ul / dd
  */
-let wordDefinitionDl = document.querySelector('dl');
 let requestJson = 'dd.json';
-
 let request = new XMLHttpRequest();
 request.open('GET', requestJson);
-
 request.responseType = 'json';
+
 request.onload = function() {
     let definition = request.response;
     worldDefinition(definition);
@@ -146,7 +144,6 @@ request.send();
 let nav = document.querySelector('nav');
 let requestJson2 = 'ul.json';
 let request2 = new XMLHttpRequest();
-
 request2.open('GET', requestJson2);
 request2.responseType = 'json';
 
@@ -157,10 +154,7 @@ request2.onload = function() {
 
 // select all words and her definition in json file
 function links(content) {
-    let ul = document.createElement('ul');
-    ul.id = 'links'
-    nav.appendChild(ul);
-    let linkContent = document.querySelector('#links');
+    $('nav').append($("<ul></ul>"))
 
     for (let i = 0; i<=content.length; i++) {
         $('ul').append($("<li>" + "<a href='" + content[i]['link'] + "'>" + content[i]['linkName'] + "</a></li>"))
