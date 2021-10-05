@@ -20,3 +20,8 @@ require_once $root . "/Model/Entity/Realisations.php";
 
 // Manager
 require_once $root . "/Model/Manager/CompetencesManager.php";
+require_once $root . "/Model/Manager/CoodonneesManager.php";
+require_once $root . "/Model/Manager/ExperiencesManager.php";
+require_once $root . "/Model/Manager/FormationsManager.php";
+require_once $root . "/Model/Manager/HobbiesManager.php";
+require_once $root . "/Model/Manager/PersonnalityManager.php";

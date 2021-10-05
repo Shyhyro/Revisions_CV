@@ -1,3 +1,6 @@
+<?php
+require 'Controller/require.php'
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,10 +33,14 @@
                 <h3 class="titles sectionButton">Coordonnées:</h3>
                 <section class="section">
                     <ul>
-                        <li>00.00.00.00.00</li>
-                        <li>Monbeauvillage</li>
-                        <li>59000</li>
-                        <li>Permis auto</li>
+                        <?php
+                        $coodonnees = new CoodonneesManager();
+                        $allCoodonnees = $coodonnees->getAllCoodonnees();
+
+                        foreach ($allCoodonnees as $coodonnee) {
+                            echo "<li>". $coodonnee->getContent() . '</li>';
+                        }
+                        ?>
                     </ul>
                 </section>
             </div>
@@ -41,9 +48,14 @@
                 <h3 class="titles sectionButton">Personnalités:</h3>
                 <section class="section">
                     <ul>
-                        <li>Trait 1</li>
-                        <li>Trait 2</li>
-                        <li>Trait 3</li>
+                        <?php
+                        $personalities = new PersonnalityManager();
+                        $allPersonality = $personalities->getAllPersonality();
+
+                        foreach ($allPersonality as $personality) {
+                            echo "<li>". $personality->getContent() . '</li>';
+                        }
+                        ?>
                     </ul>
                 </section>
             </div>
@@ -51,9 +63,14 @@
                 <h3 class="titles sectionButton">Compétences:</h3>
                 <section class="section">
                     <ul>
-                        <li>PHP</li>
-                        <li>JavaScript</li>
-                        <li>CSS</li>
+                        <?php
+                        $competence = new CompetencesManager();
+                        $allCompetences = $competence->getAllCompetences();
+
+                        foreach ($allCompetences as $competence) {
+                            echo "<li>". $competence->getContent() . '</li>';
+                        }
+                        ?>
                     </ul>
                 </section>
             </div>
@@ -61,9 +78,14 @@
                 <h3 class="titles sectionButton">Hobbies:</h3>
                 <section class="section">
                     <ul>
-                        <li>Jardinage</li>
-                        <li>Dessin</li>
-                        <li>Peinture</li>
+                        <?php
+                        $hobbies = new HobbiesManager();
+                        $allHobbies = $hobbies->getAllHobbies();
+
+                        foreach ($allHobbies as $hobbie) {
+                            echo "<li>". $hobbie->getContent() . '</li>';
+                        }
+                        ?>
                     </ul>
                 </section>
             </div>
@@ -75,31 +97,39 @@
             <div id="cv_experience">
                 <h3 class="titles">Experience Professionnelle</h3>
                 <div id="cv_all_experiences">
-                    <div class="cv_1_experience">
-                        <h4>Laveur de vitre</h4>
-                        <p class="date">01/01/2021</p>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid debitis eum iste, iusto.</p>
-                    </div>
-                    <div class="cv_1_experience">
-                        <h4>Laveur de vitre</h4>
-                        <p class="date">01/01/2021</p>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid debitis eum iste, iusto.</p>
-                    </div>
+                    <?php
+                    $experiences = new ExperiencesManager();
+                    $allexperiences = $experiences->getAllExperience();
+
+                    foreach ($allexperiences as $experience) {
+                    ?>
+                        <div class="cv_1_experience">
+                            <h4><?=$experience->getTittle() ?></h4>
+                            <p class="date"><?=$experience->getDate() ?></p>
+                            <p class="description"><?=$experience->getContent() ?></p>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div id="cv_study">
                 <h3 class="titles">Formations</h3>
                 <div id="cv_all_study">
-                    <div class="cv_1_study">
-                        <h4>BEP</h4>
-                        <p class="date">01/01/2021</p>
-                        <p class="description">Laboriosam maiores maxime necessitatibus nesciunt odio officiis sed similique, sint sunt tenetur. Cupiditate magni quae soluta.</p>
-                    </div>
-                    <div class="cv_1_study">
-                        <h4>BEP</h4>
-                        <p class="date">01/01/2021</p>
-                        <p class="description">Laboriosam maiores maxime necessitatibus nesciunt odio officiis sed similique, sint sunt tenetur. Cupiditate magni quae soluta.</p>
-                    </div>
+                    <?php
+                    $formations = new FormationsManager();
+                    $allformations = $formations->getAllFormations();
+
+                    foreach ($allformations as $formation) {
+                        ?>
+                        <div class="cv_1_study">
+                            <h4><?=$formation->getTittle() ?></h4>
+                            <p class="date"><?=$formation->getDate() ?></p>
+                            <p class="description"><?=$formation->getContent() ?></p>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div id="cv_others">

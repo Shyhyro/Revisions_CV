@@ -52,6 +52,10 @@ header h1{
     background-color: #c7f2f2;
 }
 
+#cv_right {
+    width: 70%;
+}
+
 #cv_left{
     width: 30%;
     background-color: #c7f2f2;
