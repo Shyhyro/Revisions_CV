@@ -34,11 +34,20 @@ require 'Controller/require.php'
                 $allCoodonnees = $coodonnees->getAllCoodonnees();
 
                 foreach ($allCoodonnees as $coodonnee) {
-                    echo "<li>". $coodonnee->getContent() . '</li>';
+                    echo "<li>". $coodonnee->getContent() . ' | <a href="#">Delete</a></li>';
                 }
                 ?>
             </ul>
         </div>
+        <form name="addCoordonnées" action="#" method="get">
+            <fieldset>
+                Name:
+                <input type="text" maxlength="45" required>
+                Content:
+                <input type="text" maxlength="100" required>
+                <button type="submit">Add</button>
+            </fieldset>
+        </form>
     </section>
     <section>
         <h3>Personnalités:</h3>
@@ -49,11 +58,18 @@ require 'Controller/require.php'
                 $allPersonality = $personalities->getAllPersonality();
 
                 foreach ($allPersonality as $personality) {
-                    echo "<li>". $personality->getContent() . '</li>';
+                    echo "<li>". $personality->getContent() . ' | <a href="#">Delete</a></li>';
                 }
                 ?>
             </ul>
         </div>
+        <form name="addPersonality" action="#" method="get">
+            <fieldset>
+                Content:
+                <input type="text" maxlength="45" required>
+                <button type="submit">Add</button>
+            </fieldset>
+        </form>
     </section>
     <section>
         <h3>Compétences:</h3>
@@ -64,11 +80,18 @@ require 'Controller/require.php'
                 $allCompetences = $competence->getAllCompetences();
 
                 foreach ($allCompetences as $competence) {
-                    echo "<li>". $competence->getContent() . '</li>';
+                    echo "<li>". $competence->getContent() . ' | <a href="#">Delete</a></li>';
                 }
                 ?>
             </ul>
         </div>
+        <form name="addCompetence" action="#" method="get">
+            <fieldset>
+                Content:
+                <input type="text" maxlength="45" required>
+                <button type="submit">Add</button>
+            </fieldset>
+        </form>
     </section>
     <section>
         <h3>Hobbies:</h3>
@@ -79,11 +102,18 @@ require 'Controller/require.php'
                 $allHobbies = $hobbies->getAllHobbies();
 
                 foreach ($allHobbies as $hobbie) {
-                    echo "<li>". $hobbie->getContent() . '</li>';
+                    echo "<li>". $hobbie->getContent() . ' | <a href="#">Delete</a></li>';
                 }
                 ?>
             </ul>
         </div>
+        <form name="addHobbie" action="#" method="get">
+            <fieldset>
+                Content:
+                <input type="text" maxlength="45" required>
+                <button type="submit">Add</button>
+            </fieldset>
+        </form>
     </section>
     <section>
         <h3>Experience Professionnelle</h3>
@@ -97,12 +127,24 @@ require 'Controller/require.php'
                 <div class="cv_1_experience">
                     <h4><?=$experience->getTittle() ?></h4>
                     <p class="date"><?=$experience->getDate() ?></p>
-                    <p class="description"><?=$experience->getContent() ?></p><br>
+                    <p class="description"><?=$experience->getContent() ?></p>
+                    <p><a href="#">Delete</a></p><br>
                 </div>
                 <?php
             }
             ?>
         </div>
+        <form name="addExperience" action="#" method="get">
+            <fieldset>
+                Tittle:
+                <input type="text" maxlength="45" required>
+                Date:
+                <input type="text" maxlength="45" required>
+                Content:
+                <input type="text" maxlength="45" required>
+                <button type="submit">Add</button>
+            </fieldset>
+        </form>
     </section>
     <section>
         <h3>Formations</h3>
@@ -116,12 +158,24 @@ require 'Controller/require.php'
                 <div class="cv_1_study">
                     <h4><?=$formation->getTittle() ?></h4>
                     <p class="date"><?=$formation->getDate() ?></p>
-                    <p class="description"><?=$formation->getContent() ?></p><br>
+                    <p class="description"><?=$formation->getContent() ?></p>
+                    <p><a href="#">Delete</a></p><br>
                 </div>
                 <?php
             }
             ?>
         </div>
+        <form name="addFormation" action="#" method="get">
+            <fieldset>
+                Tittle:
+                <input type="text" maxlength="45" required>
+                Date:
+                <input type="text" maxlength="45" required>
+                Content:
+                <input type="text" maxlength="45" required>
+                <button type="submit">Add</button>
+            </fieldset>
+        </form>
     </section>
     <section>
         <h3>Réalisations personnelles:</h3>
@@ -130,6 +184,7 @@ require 'Controller/require.php'
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Lien</th>
+                <th>Actions</th>
             </tr>
             <?php
             $realisations = new RealisationManager();
@@ -141,11 +196,23 @@ require 'Controller/require.php'
                     <td><?=$realisation->getTittle() ?></td>
                     <td><?=$realisation->getContent() ?></td>
                     <td><a href="<?=$realisation->getLink() ?>">Lien</a></td>
+                    <td><a href="#">Delete</a></td>
                 </tr>
                 <?php
             }
             ?>
         </table>
+        <form name="addRealisation" action="#" method="get">
+            <fieldset>
+                Tittle:
+                <input type="text" maxlength="45" required>
+                Content:
+                <input type="text" maxlength="45" required>
+                Link:
+                <input type="text" maxlength="255" required>
+                <button type="submit">Add</button>
+            </fieldset>
+        </form>
     </section>
 
 </main>
