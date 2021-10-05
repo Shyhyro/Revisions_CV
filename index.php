@@ -132,7 +132,7 @@ require 'Controller/require.php'
                     ?>
                 </div>
             </div>
-            <div id="cv_others">
+            <tr id="cv_others">
                 <h3 class="titles">Réalisations personnelles:</h3>
                 <table>
                     <tr>
@@ -140,26 +140,20 @@ require 'Controller/require.php'
                         <th>Description</th>
                         <th>Lien</th>
                     </tr>
-                    <tr>
-                        <td>Ma réalisation</td>
-                        <td>Sa description</td>
-                        <td><a href="#" rel="Lien de la réalisation">Lien</a></td>
-                    </tr>
-                    <tr>
-                        <td>Ma réalisation</td>
-                        <td>Sa description</td>
-                        <td><a href="#" rel="Lien de la réalisation">Lien</a></td>
-                    </tr>
-                    <tr>
-                        <td>Ma réalisation</td>
-                        <td>Sa description</td>
-                        <td><a href="#" rel="Lien de la réalisation">Lien</a></td>
-                    </tr>
-                    <tr>
-                        <td>Ma réalisation</td>
-                        <td>Sa description</td>
-                        <td><a href="#" rel="Lien de la réalisation">Lien</a></td>
-                    </tr>
+                    <?php
+                    $realisations = new RealisationManager();
+                    $allRealisations = $realisations->getAllRealisations();
+
+                    foreach ($allRealisations as $realisation) {
+                        ?>
+                        <tr>
+                            <td><?=$realisation->getTittle() ?></td>
+                            <td><?=$realisation->getContent() ?></td>
+                            <td><a href="<?=$realisation->getLink() ?>">Lien</a></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
                 </table>
             </div>
         </div>

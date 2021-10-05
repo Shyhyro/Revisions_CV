@@ -14,12 +14,12 @@ class Realisations
      * @param string|null $link
      * @param string|null $content
      */
-    public function __construct(int $id = null, string $tittle = null, string $link = null, string $content = null)
+    public function __construct(int $id = null, string $tittle = null, string $content = null, string $link = null)
     {
         $this->id = $id;
         $this->tittle = $tittle;
-        $this->link = $link;
         $this->content = $content;
+        $this->link = $link;
     }
 
     /**
@@ -51,6 +51,25 @@ class Realisations
     }
 
     /**
+     * Return content
+     * @return false|string|null
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set the content
+     * @param false|string|null $content
+     */
+    public function setContent($content): Realisations
+    {
+        $this->content = $content;
+        return $this;
+    }
+
+    /**
      * Return link
      * @return false|string|null
      */
@@ -69,22 +88,4 @@ class Realisations
         return $this;
     }
 
-    /**
-     * Return content
-     * @return false|string|null
-     */
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    /**
-     * Set the content
-     * @param false|string|null $content
-     */
-    public function setContent($content): Realisations
-    {
-        $this->content = $content;
-        return $this;
-    }
 }

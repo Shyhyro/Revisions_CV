@@ -1,10 +1,10 @@
 [
   {
-    "linkName": "Link1",
-    "link": "#"
+    "linkName": "CV",
+    "link": "index.php"
   },
   {
-    "linkName": "Link2",
-    "link": "#"
+    "linkName": "Administration",
+    "link": "administration.php"
   }
 ]

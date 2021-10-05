@@ -25,3 +25,4 @@ require_once $root . "/Model/Manager/ExperiencesManager.php";
 require_once $root . "/Model/Manager/FormationsManager.php";
 require_once $root . "/Model/Manager/HobbiesManager.php";
 require_once $root . "/Model/Manager/PersonnalityManager.php";
+require_once $root . "/Model/Manager/RealisationManager.php";
