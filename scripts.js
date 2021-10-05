@@ -157,7 +157,7 @@ function links(content) {
     $('nav').append($("<ul></ul>"))
 
     for (let i = 0; i<=content.length; i++) {
-        $('ul').append($("<li>" + "<a href='" + content[i]['link'] + "'>" + content[i]['linkName'] + "</a></li>"))
+        $('nav ul').append($("<li>" + "<a href='" + content[i]['link'] + "'>" + content[i]['linkName'] + "</a></li>"))
     }
 }
 
