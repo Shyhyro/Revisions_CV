@@ -31,4 +31,17 @@ class HobbiesManager
 
         return $stmt->execute();
     }
+
+    /**
+     * Delete a Hobbie
+     * @param $id
+     * @return bool
+     */
+    public function deleteHobbie($id): bool
+    {
+        $stmt = Database::getInstance()->prepare("DELETE FROM hobbies WHERE id = :id");
+        $stmt->bindValue(':id', $id);
+
+        return $stmt->execute();
+    }
 }

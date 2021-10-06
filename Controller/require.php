@@ -17,6 +17,7 @@ require_once $root . "/Model/Entity/Formations.php";
 require_once $root . "/Model/Entity/Hobbies.php";
 require_once $root . "/Model/Entity/Personnality.php";
 require_once $root . "/Model/Entity/Realisations.php";
+require_once $root . "/Model/Entity/User.php";
 
 // Manager
 require_once $root . "/Model/Manager/CompetencesManager.php";
@@ -26,3 +27,4 @@ require_once $root . "/Model/Manager/FormationsManager.php";
 require_once $root . "/Model/Manager/HobbiesManager.php";
 require_once $root . "/Model/Manager/PersonnalityManager.php";
 require_once $root . "/Model/Manager/RealisationManager.php";
+require_once $root . "/Model/Manager/UserManager.php";

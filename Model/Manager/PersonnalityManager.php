@@ -31,4 +31,17 @@ class PersonnalityManager
 
         return $stmt->execute();
     }
+
+    /**
+     * Delete a personality
+     * @param $id
+     * @return bool
+     */
+    public function deletePersonality($id): bool
+    {
+        $stmt = Database::getInstance()->prepare("DELETE FROM personnality WHERE id = :id");
+        $stmt->bindValue(':id', $id);
+
+        return $stmt->execute();
+    }
 }

@@ -19,12 +19,32 @@ class FormationsManager
         return $array;
     }
 
+    /**
+     * Create a new formation
+     * @param $tittle
+     * @param $date
+     * @param $content
+     * @return bool
+     */
     public function newFormation($tittle, $date, $content): bool
     {
         $stmt = Database::getInstance()->prepare("INSERT INTO formations (tittle, date, content) VALUE (:tittle, :date, :content)");
         $stmt->bindValue(':tittle', $tittle);
         $stmt->bindValue(':date', $date);
         $stmt->bindValue(':content', $content);
+
+        return $stmt->execute();
+    }
+
+    /**
+     * delete a formation
+     * @param $id
+     * @return bool
+     */
+    public function deleteFormation($id): bool
+    {
+        $stmt = Database::getInstance()->prepare("DELETE FROM formations WHERE id = :id");
+        $stmt->bindValue(':id', $id);
 
         return $stmt->execute();
     }

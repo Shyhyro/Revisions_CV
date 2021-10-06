@@ -132,7 +132,7 @@ require 'Controller/require.php'
                     ?>
                 </div>
             </div>
-            <tr id="cv_others">
+            <div id="cv_others">
                 <h3 class="titles">Réalisations personnelles:</h3>
                 <table>
                     <tr>

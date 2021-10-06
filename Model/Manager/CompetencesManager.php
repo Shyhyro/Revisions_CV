@@ -32,4 +32,17 @@ class CompetencesManager
         return $stmt->execute();
     }
 
+    /**
+     * Delete a competence
+     * @param $id
+     * @return bool
+     */
+    public function deleteCompetence($id): bool
+    {
+        $stmt = Database::getInstance()->prepare("DELETE FROM competences WHERE id = :id");
+        $stmt->bindValue(':id', $id);
+
+        return $stmt->execute();
+    }
+
 }

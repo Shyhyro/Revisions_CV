@@ -35,4 +35,17 @@ class RealisationManager
 
         return $stmt->execute();
     }
+
+    /**
+     * Delete a Realisation
+     * @param $id
+     * @return bool
+     */
+    public function deleteRealisation($id): bool
+    {
+        $stmt = Database::getInstance()->prepare("DELETE FROM realisations WHERE id = :id");
+        $stmt->bindValue(':id', $id);
+
+        return $stmt->execute();
+    }
 }
